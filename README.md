@@ -4,10 +4,8 @@
 
 [See a demo here]()
 
-![screenshot]()
-
 ## Stack
-*	  React (Create-React-App)
+* React (Create-React-App)
 * 	React-Redux
 *  	React-Router
 *  	Heroku

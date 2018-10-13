@@ -1,5 +1,5 @@
 
-# [Lo-Finity](https://github.com/Jorbeatz/Lo-Finity/tree/master)
+# [Lo-finity](https://github.com/Jorbeatz/Lo-Finity/tree/master)
 > Infinitely listen to homemade Lofi HipHop
 
 [See a demo here]()

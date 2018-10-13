@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Header from '../../components/app-header';
+
 import './main-page.scss';
 
 export class MainPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      minutes: 0
+    };
+    setInterval(() => {
+      this.setState((prevState) => {
+      const minutesCopy = prevState.minutes+1;
+      return { minutes: minutesCopy};
+    });
+    }, 60000);
+  }
+
   render() {
+    const minutes = this.state.minutes;
+    console.log(minutes)
     return (
       <div className="main-container">
-        <div className="container-fluid">
-          <div className="row justify-content-md-center wrapper--custom">
-            <div className="col-12">
-              <h1>TEST</h1>
-            </div>
+        <Header />
+          <div className="container-fluid container__title">
+          <div className="container">
+            <h1 className="title_text">homemade low fidelity beats</h1>
+            <h1 className="title_subtext">listening for: {this.state.minutes} minutes</h1>
           </div>
-        </div>
+          </div>
       </div>
     );
   }

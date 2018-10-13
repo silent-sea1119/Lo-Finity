@@ -14,11 +14,11 @@ app.get("/", function(req, res) {
 });
 
 io.on("connection", function(socket) {
-  socket.emit("start", { hello: "worold" });
+  socket.emit("start", { hello: "world" });
   socket.on("stream", function(data) {
     console.log(data);
     var stream = ss.createStream();
-    var filename = __dirname + "/penningen.mp3";
+    var filename = __dirname + "/assets/songs/song1.mp3";
     ss(socket).emit("audio-stream", stream, { name: filename });
     fs.createReadStream(filename).pipe(stream);
   });

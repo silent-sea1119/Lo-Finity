@@ -16,8 +16,11 @@ server.listen(8000, function() {
 var files = fs.readdirSync("./assets/vocals/");
 
 function loop(res) {
+  if (res.socket._readableState.ended) {
+    return;
+  }
+
   var current = files.shift();
-  console.log("Playing: ", current);
 
   if (current === undefined) {
     files = fs.readdirSync("./assets/vocals/");
@@ -31,8 +34,15 @@ function loop(res) {
     if (err) return console.log(err.message);
 
     stream.pipe(res, { end: false });
+    console.log(
+      "Playing: " +
+        current +
+        "\tWaiting\t" +
+        duration * 1000 +
+        " before playing next track"
+    );
+
     temporal.delay(duration * 1000, function() {
-      console.log(duration * 1000, "later");
       loop(res);
     });
   });
@@ -43,10 +53,15 @@ app.get("/song", function(req, res) {
 
   var filename = __dirname + "/assets/vocals/blind.mp3";
   var stream = fs.createReadStream(filename);
+  var stringify = require("json-stringify-safe");
 
-  stream.pipe(res, { end: false });
+  // res.send(stringify(res.socket));
 
-  stream.on("end", function() {
-    loop(res);
-  });
+  // res.on("end", function() {
+  //   console.log(
+  //     "$$$$$$$\nENEDED\n$$$$$$$\nENEDED\n$$$$$$$\nENEDED\n$$$$$$$\nENEDED\n$$$$$$$\nENEDED\n$$$$$$$\nENEDED\n"
+  //   );
+  // });
+
+  loop(res);
 });

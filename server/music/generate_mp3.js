@@ -1,5 +1,7 @@
 var generate_progression = require("./generate_midi.js");
 var temporal = require("temporal");
+var SoxCommand = require('sox-audio');
+var shell = require('shelljs');
 
 function createMP3(bops) {
     var date = Date.now();
@@ -17,7 +19,7 @@ function createMP3(bops) {
     const Lame = require("node-lame").Lame;
     var op = "./tracks/" + date.toString() + ".mp3";
     const encoder = new Lame({
-        output: op,
+        output: "./yeet.mp3",
         bitrate: 192
     }).setFile("./chord_progression_and_piano.wav");
 
@@ -35,6 +37,12 @@ function createMP3(bops) {
         .catch(error => {
             console.log(error);
         });
+       
+        var goforit = "sox --combine mix yeet.mp3 out.mp3 " + op
+        var command = SoxCommand(goforit)
+        console.log(command)
+        shell.exec("sox --combine mix yeet.mp3 out.mp3 " + op)
+
 }
 generate_progression();
 temporal.delay(1000, function() {

@@ -3,6 +3,7 @@
 > Infinitely listen to homemade Lofi HipHop
 
 [Try the live demo here](https://lo-finity.herokuapp.com/)
+
 [Documentation](https://jorbeatz.github.io/Lo-Finity/#/)
 
 ## Stack

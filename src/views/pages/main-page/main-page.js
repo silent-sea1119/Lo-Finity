@@ -33,7 +33,7 @@ export class MainPage extends Component {
           <div className="container">
             <h1 className="title_text">homemade low fidelity beats</h1>
             <h1 className="title_subtext">
-listening for:
+listening for:&nbsp;
               {this.state.minutes}
               {' '}
 minutes

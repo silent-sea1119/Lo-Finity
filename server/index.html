@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>bb</title>
+</head>
+
+<body>
+    <h1>Audio</h1>
+    <audio id="audio" controls>
+    <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  <br>
+
+
+    <script>
+      const socket = new WebSocket('ws://localhost:8080');
+
+      // Connection opened
+      socket.addEventListener('open', function (event) {
+          socket.send('message');
+          console.log("opened connection");
+      });
+
+      // Listen for messages
+      socket.addEventListener('message', function (event) {
+          console.log('Message from server ', event.data);
+      });
+    </script>
+</body>
+</html>

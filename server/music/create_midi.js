@@ -46,28 +46,36 @@ while(phrase_count>0){
 	}
 }
 
+
 var notes = ['C4', 'C#4', 'D4', 'D#4', 'E4', 'F4', "F#4", "G4", "G#4", "A4", "A#4", "B4", "C5"];
+var convert = ['0', '2', '4', '5', '7', '9', '11']
 var midi_chords = []
-midi_chords.push(new MidiWriter.ProgramChangeEvent({instrument: 1}));
+midi_chords.push(new MidiWriter.ProgramChangeEvent({instrument: 2}));
 for(var i = 0; i < chord_progression.length; i++){
 	var pick_note = 0;
-	pick_note += chord_progression[i];
+	pick_note += (convert[parseInt(chord_progression[i], 10)-1] % 12);
 	var chord = [];
 
 	chord.push(notes[pick_note]);
-	chord.push(notes[pick_note + 4]);
-	chord.push(notes[pick_note + 7]);
-	midi_chords.push(new MidiWriter.NoteEvent({pitch: chord, duration: 1}))
+	chord.push(notes[(pick_note + 4)% 12]);
+	chord.push(notes[(pick_note + 7) % 12]);
+	console.log(chord);
+	if(chord_progression[i] == "1"){
+		midi_chords.push(new MidiWriter.NoteEvent({pitch: chord, duration: 1}));
+		midi_chords.push(new MidiWriter.NoteEvent({pitch: chord, duration: 1}));
+	} else {
+		midi_chords.push(new MidiWriter.NoteEvent({pitch: chord, duration: 1}));
+	}
+
 }
 
 var tracks = [];
 tracks[0] = new MidiWriter.Track();
 tracks[0]
-	.setTempo(300)
+	.setTempo(150)
 	.addEvent(midi_chords, function(index, event){
 		return {velocity: 100};
 	})
 
 var write = new MidiWriter.Writer(tracks);
 write.saveMIDI("bops");
-

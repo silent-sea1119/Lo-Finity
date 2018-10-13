@@ -1,8 +1,10 @@
 
-# [Lo-Finity](https://github.com/Jorbeatz/Lo-Finity/tree/master) [![Codacy grade](https://img.shields.io/codacy/grade/860d40719cbd4e0f91e145b87ec7c29a.svg?style=flat-square)](https://www.codacy.com/app/jhildenbiddle/docsify-themeable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jhildenbiddle/docsify-themeable&amp;utm_campaign=Badge_Grade)
+# [Lo-Finity](https://jorbeatz.github.io/Lo-Finity/#/) [![Codacy grade](https://img.shields.io/codacy/grade/860d40719cbd4e0f91e145b87ec7c29a.svg?style=flat-square)](https://www.codacy.com/app/jhildenbiddle/docsify-themeable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jhildenbiddle/docsify-themeable&amp;utm_campaign=Badge_Grade)
 > Infinitely listen to homemade Lofi HipHop
 
-[See a demo here]()
+[Try the live demo here](https://lo-finity.herokuapp.com/)
+
+[Documentation](https://jorbeatz.github.io/Lo-Finity/#/)
 
 ## Stack
 * React (Create-React-App)

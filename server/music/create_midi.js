@@ -1,5 +1,5 @@
 
-function generate_progression(){
+export function generate_progression(){
 	var fs = require("fs")
 	var MidiWriter = require('midi-writer-js');
 	//var json_string = "{\"1\": {\"prob\": [\".252\"], \"child\": [5]}}";

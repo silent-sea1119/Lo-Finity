@@ -10,7 +10,7 @@ const AppHeader = () => {
         <div className="container">
           <a href="https://jorbeatz.github.io/Lo-Finity/#/" className="navBar__title">lo-finity <span className="navBar__subtitle">• homemade chill hip hop radio</span></a>
           <div className="navBar__actions">
-            <p className="navBar__stack">React Redux | Python </p>
+            <p className="navBar__stack">React Redux | Node.js </p>
             <a href="https://github.com/Jorbeatz/Lo-Finity/tree/master"><img className="navBar__github" src={GithubLogo} height="30" alt="github logo"/></a>
           </div>
         </div>

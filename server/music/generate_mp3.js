@@ -45,6 +45,4 @@ function createMP3(bops) {
 
 }
 generate_progression();
-temporal.delay(1000, function() {
-    createMP3("chord_progression_and_piano.mid");
-});
+createMP3("chord_progression_and_piano.mid");

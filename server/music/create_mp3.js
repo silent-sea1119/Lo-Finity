@@ -1,3 +1,6 @@
+var generate_progression = require("./create_midi.js");
+var temporal = require("temporal");
+
 function createMP3(bops) {
     var date = Date.now();
     const synth = require("synth-js");
@@ -33,5 +36,7 @@ function createMP3(bops) {
             console.log(error);
         });
 }
-
-createMP3("chord_progression_and_piano.mid");
+generate_progression();
+temporal.delay(1000, function() {
+    createMP3("chord_progression_and_piano.mid");
+});

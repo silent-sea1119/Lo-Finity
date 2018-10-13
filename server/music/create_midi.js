@@ -1,7 +1,7 @@
-var fs = require("fs");
-var MidiWriter = require("../js/midi-writer-js");
+module.exports = function() {
+	var fs = require("fs");
+	var MidiWriter = require("../js/midi-writer-js");
 
-function generate_progression() {
 	var chord_tree = JSON.parse(
 		fs.readFileSync("../tree_gen/chord_tree_depth_4.json", "utf8")
 	);
@@ -93,6 +93,4 @@ function generate_progression() {
 
 	var write = new MidiWriter.Writer(tracks);
 	write.saveMIDI("chord_progression_and_piano");
-}
-
-generate_progression();
+};

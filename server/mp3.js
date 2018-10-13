@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 var server = require("http").Server(app);
 var fs = require("fs");
+var io = require("socket.io")(server);
+// const songNamespace = io.of("/song");
 
 app.use(express.static(`${__dirname}/html`));
 
@@ -13,5 +15,8 @@ app.get("/song", function(req, res) {
   console.log("Got request for song");
   var filename = __dirname + "/assets/songs/dave-brubeck-take-five.mp3";
   var stream = fs.createReadStream(filename);
-  stream.pipe(res);
+
+  while (true) {
+    stream.pipe(res);
+  }
 });

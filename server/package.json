@@ -14,7 +14,7 @@
     "audio-converter": "^1.0.13",
     "audio-visualizer": "^1.6.0",
     "express": "^4.16.4",
-    "json-stringify-safe": "^5.0.1",
+    "lame": "^1.2.4",
     "midi-writer-js": "^1.5.2",
     "mp3-duration": "^1.1.0",
     "node-lame": "^1.1.0",

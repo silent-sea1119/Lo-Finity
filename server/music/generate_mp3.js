@@ -1,4 +1,4 @@
-var generate_progression = require("./create_midi.js");
+var generate_progression = require("./generate_midi.js");
 var temporal = require("temporal");
 
 function createMP3(bops) {

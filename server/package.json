@@ -16,6 +16,7 @@
     "express": "^4.16.4",
     "midi-writer-js": "^1.5.2",
     "mp3-duration": "^1.1.0",
+    "node-lame": "^1.1.0",
     "sleep": "^5.2.3",
     "socket.io": "^2.0.2",
     "socket.io-stream": "^0.9.1",

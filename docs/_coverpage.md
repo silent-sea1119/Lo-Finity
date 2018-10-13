@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-# Lo-Finity <small>v0.1.0</small>
+# Lo-finity <small>v0.1.0</small>
 
 > Infinite House Made Lo-fi HipHop
 

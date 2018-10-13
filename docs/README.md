@@ -2,7 +2,7 @@
 # [lo-finity](https://github.com/Jorbeatz/Lo-Finity/tree/master)
 > Infinitely listen to homemade Lofi HipHop
 
-[See a demo here]()
+[See a demo here](https://lo-finity.herokuapp.com/)
 
 ## Stack
 * React (Create-React-App)

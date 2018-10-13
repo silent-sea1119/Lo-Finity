@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../../components/app-header';
-import BackgroundBeat from '../../components/background-beat';
+import SickWaves from '../../components/sick-waves';
 
 import './main-page.scss';
 
@@ -10,8 +10,13 @@ export class MainPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: 0
+      minutes: 0,
+      speed: 0.5,
+      color: 0x191C1F,
+      height: 0.5,
+      scale: 1
     };
+
     setInterval(() => {
       this.setState((prevState) => {
       const minutesCopy = prevState.minutes+1;
@@ -21,8 +26,6 @@ export class MainPage extends Component {
   }
 
   render() {
-    const minutes = this.state.minutes;
-    console.log(minutes)
     return (
       <div className="main-container">
         <Header />
@@ -32,8 +35,13 @@ export class MainPage extends Component {
               <h1 className="title_subtext">listening for: {this.state.minutes} minutes</h1>
             </div>
           </div>
-          <div className="container">
+          <div className="container text-center">
+            <i className="far fa-play-circle play--button"></i>
           </div>
+          <SickWaves
+            style={{width: '100vw', height: '40vh', position: 'fixed'}}
+            {...this.state}
+          />
       </div>
     );
   }

@@ -5,6 +5,7 @@ export default class Visualization extends Component {
     super(props);
     this.audioProcess = this.audioProcess.bind(this);
   }
+
   componentDidMount() {
     this.ctx = this.canvas.getContext('2d');
   }
@@ -28,6 +29,7 @@ export default class Visualization extends Component {
       }
     }
   }
+
   render() {
     return (
       <canvas

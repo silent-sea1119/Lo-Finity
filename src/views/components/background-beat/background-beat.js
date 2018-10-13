@@ -5,7 +5,7 @@ import {
   Song,
   Sequencer,
   Sampler,
-  Synth
+  Synth,
 } from 'react-music';
 
 import Polysynth from './polysynth';
@@ -18,7 +18,7 @@ export default class Demo extends Component {
 
     this.state = {
       playing: true,
-      lightMode: true
+      lightMode: true,
     };
 
     this.handlePlayToggle = this.handlePlayToggle.bind(this);
@@ -30,19 +30,22 @@ export default class Demo extends Component {
       playing: !this.state.playing,
     });
   }
-  toggleLightMode(){
-    this.setState({lightMode: !this.state.lightMode});
+
+  toggleLightMode() {
+    this.setState({ lightMode: !this.state.lightMode });
   }
+
   render() {
     return (
       <div style={this.state.lightMode ? {
-        paddingTop: '30px'
+        paddingTop: '30px',
       } : {
         backgroundColor: '#000',
         width: '100%',
         height: '100%',
-        paddingTop: '30px'
-      }}>
+        paddingTop: '30px',
+      }}
+      >
         <Song
           playing={this.state.playing}
           tempo={90}
@@ -68,7 +71,7 @@ export default class Demo extends Component {
             >
               <Polysynth
                 steps={[
-                  [0, 1, ['c3', 'd#3', 'g3' ]],
+                  [0, 1, ['c3', 'd#3', 'g3']],
                   [2, 1, ['c4']],
                   [8, 1, ['c3', 'd#3', 'g3']],
                   [10, 1, ['c4']],
@@ -87,7 +90,7 @@ export default class Demo extends Component {
               resolution={16}
               bars={2}
             >
-            <Synth
+              <Synth
                 type="sine"
                 steps={[
                   [0, 8, 'c2'],

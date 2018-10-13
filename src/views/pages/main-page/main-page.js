@@ -14,14 +14,14 @@ export class MainPage extends Component {
       speed: 0.5,
       color: 0x191C1F,
       height: 0.5,
-      scale: 1
+      scale: 1,
     };
 
     setInterval(() => {
       this.setState((prevState) => {
-      const minutesCopy = prevState.minutes+1;
-      return { minutes: minutesCopy};
-    });
+        const minutesCopy = prevState.minutes + 1;
+        return { minutes: minutesCopy };
+      });
     }, 60000);
   }
 
@@ -29,19 +29,24 @@ export class MainPage extends Component {
     return (
       <div className="main-container">
         <Header />
-          <div className="container-fluid container__title">
-            <div className="container">
-              <h1 className="title_text">homemade low fidelity beats</h1>
-              <h1 className="title_subtext">listening for: {this.state.minutes} minutes</h1>
-            </div>
+        <div className="container-fluid container__title">
+          <div className="container">
+            <h1 className="title_text">homemade low fidelity beats</h1>
+            <h1 className="title_subtext">
+listening for:&nbsp;
+              {this.state.minutes}
+              {' '}
+minutes
+            </h1>
           </div>
-          <div className="container text-center">
-            <i className="far fa-play-circle play--button"></i>
-          </div>
-          <SickWaves
-            style={{width: '100vw', height: '40vh', position: 'fixed'}}
-            {...this.state}
-          />
+        </div>
+        <div className="container text-center">
+          <i className="far fa-play-circle play--button" />
+        </div>
+        <SickWaves
+          style={{ width: '100vw', height: '40vh', position: 'fixed' }}
+          {...this.state}
+        />
       </div>
     );
   }

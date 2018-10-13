@@ -15,6 +15,7 @@ export class MainPage extends Component {
       color: 0x191C1F,
       height: 0.5,
       scale: 1,
+      button: true
     };
 
     setInterval(() => {
@@ -23,6 +24,12 @@ export class MainPage extends Component {
         return { minutes: minutesCopy };
       });
     }, 60000);
+  }
+
+  toggleButton = () => {
+    this.setState((prevState) => {
+      return { button: !prevState.button}
+    })
   }
 
   render() {
@@ -41,7 +48,7 @@ minutes
           </div>
         </div>
         <div className="container text-center">
-          <i className="far fa-play-circle play--button" />
+          {this.state.button === true ? <i className="far fa-play-circle play--button" onClick={this.toggleButton}/> : <i className="far fa-pause-circle play--button" onClick={this.toggleButton}/>}
         </div>
         <SickWaves
           style={{ width: '100vw', height: '40vh', position: 'fixed' }}

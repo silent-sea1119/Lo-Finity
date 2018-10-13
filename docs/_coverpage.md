@@ -10,3 +10,5 @@
 
 [GitHub](https://github.com/Jorbeatz/Lo-Finity/tree/master)
 [Getting Started](#main)
+
+![color](#000000)

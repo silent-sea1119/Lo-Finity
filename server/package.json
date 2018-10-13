@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "audio-converter": "^1.0.13",
     "audio-visualizer": "^1.6.0",
     "express": "^4.16.4",
     "mp3-duration": "^1.1.0",
@@ -18,6 +19,7 @@
     "socket.io": "^2.0.2",
     "socket.io-stream": "^0.9.1",
     "stream": "0.0.2",
+    "synth-js": "^0.1.1",
     "temporal": "^0.7.1"
   },
   "devDependencies": {

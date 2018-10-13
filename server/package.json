@@ -18,9 +18,11 @@
     "midi-writer-js": "^1.5.2",
     "mp3-duration": "^1.1.0",
     "node-lame": "^1.1.0",
+    "shelljs": "^0.8.2",
     "sleep": "^5.2.3",
     "socket.io": "^2.0.2",
     "socket.io-stream": "^0.9.1",
+    "sox-audio": "^0.3.0",
     "stream": "0.0.2",
     "synth-js": "^0.1.1",
     "temporal": "^0.7.1"

@@ -14,6 +14,7 @@
     "audio-converter": "^1.0.13",
     "audio-visualizer": "^1.6.0",
     "express": "^4.16.4",
+    "midi-writer-js": "^1.5.2",
     "mp3-duration": "^1.1.0",
     "sleep": "^5.2.3",
     "socket.io": "^2.0.2",

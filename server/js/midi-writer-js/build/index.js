@@ -1178,7 +1178,7 @@ var Writer = (function() {
 			key: "saveMIDI",
 			value: function saveMIDI(filename) {
 				var buffer = Buffer.from(this.buildFile());
-				fs.writeFile(filename + ".mid", buffer, function(err) {
+				fs.writeFileSync(filename + ".mid", buffer, function(err) {
 					if (err) return console.log(err);
 				});
 			}

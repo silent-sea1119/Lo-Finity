@@ -3,7 +3,7 @@ module.exports = function() {
 	var MidiWriter = require("../js/midi-writer-js");
 
 	var chord_tree = JSON.parse(
-		fs.readFileSync("../tree_gen/chord_tree_depth_4.json", "utf8")
+		fs.readFileSync("./tree_gen/chord_tree.json", "utf8")
 	);
 
 	var chord_progression = [];
@@ -63,7 +63,7 @@ module.exports = function() {
 	var convert = ["0", "2", "4", "5", "7", "9", "11"];
 
 	var midi_chords = [];
-	midi_chords.push(new MidiWriter.ProgramChangeEvent({ instrument: 2 }));
+	midi_chords.push(new MidiWriter.ProgramChangeEvent({ instrument: 1 }));
 
 	for (var i = 0; i < chord_progression.length; i++) {
 		var pick_note = 0;
@@ -76,21 +76,92 @@ module.exports = function() {
 
 		console.log("Playing chord: ", chord);
 
+		var repeat = 1;
 		if (chord_progression[i] == "1") {
-			midi_chords.push(new MidiWriter.NoteEvent({ pitch: chord, duration: 1 }));
-			midi_chords.push(new MidiWriter.NoteEvent({ pitch: chord, duration: 1 }));
-		} else {
-			midi_chords.push(new MidiWriter.NoteEvent({ pitch: chord, duration: 1 }));
+			repeat = 2;
+		}
+		while (repeat > 0) {
+			var random = Math.random() * 100;
+			if (random < 50) {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: 1 })
+				);
+			} else if (random < 60) {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord[2], duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord[1], duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord[1], duration: "4" })
+				);
+
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, wait: "8", duration: "8" })
+				);
+			} else if (random < 65) {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "d2" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({
+						pitch: chord[1],
+						wait: "4",
+						duration: "4"
+					})
+				);
+			} else if (random < 75) {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, wait: "4", duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "16" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "d8" })
+				);
+			} else if (random < 90) {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "2" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord[-1], duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "4" })
+				);
+			} else {
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "8" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "8" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, wait: "8", duration: "8" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "4" })
+				);
+				midi_chords.push(
+					new MidiWriter.NoteEvent({ pitch: chord, duration: "4" })
+				);
+			}
+			repeat--;
 		}
 	}
 
 	var tracks = [];
 
 	tracks[0] = new MidiWriter.Track();
-	tracks[0].setTempo(150).addEvent(midi_chords, function(index, event) {
+	tracks[0].setTempo(90).addEvent(midi_chords, function(index, event) {
 		return { velocity: 100 };
 	});
 
 	var write = new MidiWriter.Writer(tracks);
-	write.saveMIDI("chord_progression_and_piano");
+	write.saveMIDI("./music/chord_progression_and_piano");
 };

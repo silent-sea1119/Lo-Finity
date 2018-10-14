@@ -12,6 +12,7 @@
 *  	React-Router
 *  	Heroku
 *  	Eslint
+*	Node.js 
 
 ## Getting Started
 The project can be accessed [here](https://github.com/Jorbeatz/Lo-Finity/tree/master) Github
